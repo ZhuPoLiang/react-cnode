@@ -27,10 +27,7 @@ module.exports = {
                 fallback: 'style-loader',
                 use: [
                     {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true
-                        }
+                        loader: 'css-loader'
                     },
                     {
                         loader: 'postcss-loader',

@@ -17,9 +17,10 @@ const
         'axios',
         'react',
         'react-dom',
-        'redux',
         'react-redux',
         'react-router',
+        'react-router-dom',
+        'redux',
         'redux-thunk',
         'redux-logger'
     ];
