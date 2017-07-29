@@ -14,7 +14,7 @@ module.exports = merge({
 
     output: {
         path: configPath.distPath,
-        filename: './static/scripts/[name].[chunkhash].js'
+        filename: 'static/scripts/[name].[chunkhash].js'
     },
 
     resolve: require('../config/resolve'),

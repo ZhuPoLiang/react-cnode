@@ -22,7 +22,7 @@ module.exports = [
         }
     }),
     new Webpack.optimize.AggressiveMergingPlugin(),
-    new ExtractTextWepackPlugin('./static/styles/[name].[chunkhash:7].css', {
+    new ExtractTextWepackPlugin('static/styles/[name].[chunkhash:7].css', {
         allChunks: true,
         disable: false
     }),

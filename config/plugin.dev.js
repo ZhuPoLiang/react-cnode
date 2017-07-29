@@ -13,7 +13,7 @@ module.exports = [
             NODE_ENV: JSON.stringify('development')
         }
     }),
-    new ExtractTextWepackPlugin('./static/styles/[name].css', {
+    new ExtractTextWepackPlugin('static/styles/[name].css', {
         allChunks: true,
         disable: false
     }),

@@ -1,0 +1,51 @@
+#loading
+    .inner
+        position: fixed
+        top: 76px
+        left: 50%
+        z-index: 5000
+        transform: translateX(-50%)
+        background-color: #F9FAFC
+        list-style: none
+        padding: 8px 12px
+        border-radius: 5px
+        box-shadow: 0 0 3px 0 #8492A6
+
+        .content
+            color: #324057
+            font-size: 14px
+            vertical-align: text-top
+
+        .iconfont
+            margin-right: 6px
+            font-size: 20px
+
+        &.success
+            .iconfont
+                color: #80bd01
+
+        &.warn
+            .iconfont
+                color: #ff9900
+
+
+        &.fail
+            .iconfont
+                color: #ed3f14
+
+        &.loading
+            max-width: 110px
+            .iconfont
+                color: #2d8cf0
+                display: inline-block
+                font-size: 20px
+                animation: loading .6s linear infinite
+
+@keyframes loading {
+    from {
+        transform: rotate(0)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}

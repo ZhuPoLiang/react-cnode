@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import logoSvg from '../../common/images/cnodejs_light.svg';
+import logoSvg from './cnodejs_light.svg';
 
 const Logo = () => {
     return (

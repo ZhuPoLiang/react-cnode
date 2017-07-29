@@ -31,7 +31,7 @@ module.exports = [
         filename: 'index.html',
         hash: false,
         inject: 'body',
-        bundleName: './dll/' + dllConfig.dll.js,
+        bundleName: 'dll/' + dllConfig.dll.js,
         minify: {
             removeComments: true,
             collapseWhitespace: true,

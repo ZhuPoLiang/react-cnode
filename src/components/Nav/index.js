@@ -2,12 +2,14 @@
 
 import React from 'react';
 
-import LinkItem from './LinkItem';
+import Item from './item';
 
 export default class Nav extends React.Component {
     render() {
-        let linkItems = this.props.navList.map((item, index) => {
-            return <LinkItem key={index} {...item} />
+        let linkItems = this.props.navList.filter(item => {
+            return item.isNavLink;
+        }).map((item, index) => {
+            return <Item key={index} {...item} />
         });
 
         return (

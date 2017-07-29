@@ -14,7 +14,7 @@ module.exports = merge({
 
     output: {
         path: configPath.distPath,
-        filename: './static/scripts/[name].js'
+        filename: 'static/scripts/[name].js'
     },
 
     module: require('../config/module.dev'),

@@ -8,8 +8,8 @@ export default class LinkItem extends React.Component {
         return (
             <li>
                 <NavLink
-                    activeClassName='active'
-                    to={'/' + this.props.tab}
+                    exact
+                    to={this.props.path}
                 >
                 {this.props.title}
                 </NavLink>
