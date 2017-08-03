@@ -19,7 +19,7 @@
 // 单独打包了依赖文件
 yarn run dll
 
-// 注：build或dev前必须先dll生成单独依赖库文件否则会报错
+// 注：build前必须先dll生成单独依赖库文件否则会报错
 
 yarn run build
 

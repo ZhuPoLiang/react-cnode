@@ -7,6 +7,6 @@
 </head>
 <body>
     <div id="app"></div>
-    <script src="<%= htmlWebpackPlugin.options.bundleName %>"></script>
+    <% if (htmlWebpackPlugin.options.bundleName) { %><script src="<%= htmlWebpackPlugin.options.bundleName %>"><% } %></script>
 </body>
 </html>

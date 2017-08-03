@@ -3,7 +3,8 @@
 const
     Webpack = require('webpack'),
     ExtractTextWepackPlugin = require('extract-text-webpack-plugin'),
-    OpenBrowserWebpackPlugin = require('open-browser-webpack-plugin');
+    OpenBrowserWebpackPlugin = require('open-browser-webpack-plugin'),
+    HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const configPath = require('./config-path');
 
@@ -19,6 +20,14 @@ module.exports = [
     }),
     new Webpack.HotModuleReplacementPlugin(),
     new Webpack.NoEmitOnErrorsPlugin(),
+    new HtmlWebpackPlugin({
+        title: 'webpack 1.x',
+        template: 'src/index.html',
+        filename: 'index.html',
+        hash: false,
+        inject: 'body',
+        chunks: ['app']
+    }),
     new OpenBrowserWebpackPlugin({
         url: 'http://' + configPath.host + ':' + configPath.port
     })

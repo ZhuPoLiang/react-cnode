@@ -5,10 +5,12 @@ const
     Webpack = require('webpack'),
     WebpackMd5Hash = require('webpack-md5-hash'),
     CompressionWebpackPlugin = require('compression-webpack-plugin'),
-    ExtractTextWepackPlugin = require('extract-text-webpack-plugin');
+    ExtractTextWepackPlugin = require('extract-text-webpack-plugin'),
+    HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const
-    configPath = require('./config-path');
+    configPath = require('./config-path'),
+    dllConfig = require(path.join(configPath.dllPath, 'dll-config.json'));
 
 module.exports = [
     new Webpack.DefinePlugin({
@@ -16,6 +18,11 @@ module.exports = [
             NODE_ENV: JSON.stringify('production')
         }
     }),
+    new Webpack.DllReferencePlugin({
+        context: configPath.dllPath,
+        manifest: require("../dist/dll/dll-manifest.json")
+    }),
+    new Webpack.optimize.ModuleConcatenationPlugin(),
     new Webpack.optimize.MinChunkSizePlugin({
         compress: {
             warnings: false
@@ -39,5 +46,19 @@ module.exports = [
         test: new RegExp('\\.(js|css)$'),
         threshold: 10240,
         minRatio: 0.8
+    }),
+    new HtmlWebpackPlugin({
+        title: 'webpack 1.x',
+        template: 'src/index.html',
+        filename: 'index.html',
+        hash: false,
+        inject: 'body',
+        bundleName: 'dll/' + dllConfig.dll.js,
+        minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeAttributeQuotes: true
+        },
+        chunks: ['app']
     })
 ].concat(require('./plugin'));
