@@ -1,13 +1,11 @@
-'use strict';
+'use strict'
 
 import React from 'react';
 
 export default class Topic extends React.Component {
     render() {
         return (
-            <div>
-                我是一篇文章
-            </div>
+            <h1>新的旅程即将开始！！</h1>
         )
     }
-}
+};

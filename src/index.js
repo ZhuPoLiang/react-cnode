@@ -8,26 +8,14 @@ import 'babel-polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import Thunk from 'redux-thunk';
-import { routerReducer, syncHistoryWithStore, routerMiddleware, push } from 'react-router-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
 import { createBrowserHistory } from 'history';
 import { BrowserRouter as Router, HashRouter } from 'react-router-dom';
 
-import App from './containers/App';
-import reducers from './reducers';
-
-const store = createStore(
-	combineReducers({
-		...reducers,
-		routing: routerReducer
-	}),
-	compose(applyMiddleware(
-		routerMiddleware(createBrowserHistory()),
-		Thunk
-	))
-);
+import App from './components/App';
+import store from './store';
 
 const history = syncHistoryWithStore(createBrowserHistory(), store);
 

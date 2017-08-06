@@ -22,7 +22,6 @@ module.exports = [
         context: configPath.dllPath,
         manifest: require("../dist/dll/dll-manifest.json")
     }),
-    new Webpack.optimize.ModuleConcatenationPlugin(),
     new Webpack.optimize.MinChunkSizePlugin({
         compress: {
             warnings: false
