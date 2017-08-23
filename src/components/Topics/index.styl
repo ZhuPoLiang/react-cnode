@@ -24,13 +24,57 @@
 .topic-list
     .cell
         padding: 10px
-        line-height: 2em
+        line-height: 30px
+
+        &:hover
+            background-color: #f8f8f8
 
         .picture
             leftFloat()
+            width: 30px
+            height: 30px
+            marginRight(6px)
 
-        .timer
+        .browse
+            leftFloat()
+            width: 80px
+            marginRight(6px)
+            text-align: center
+
+        .put-top
+            background: #80bd01
+            marginRight(6px)
+            padding: 2px 4px
+            color: #fff
+            font-size: 12px
+            borderRadius(3px)
+
+        .last-timer
             rightFloat()
+            color: #777
+
+            img
+                width: 18px
+                height: 18px
+                marginRight(6px)
+                vertical-align: middle
+                borderRadius(3px)
+
+            .time
+                display: inline-block
+                min-width: 50px
+                text-align: right
+                vertical-align: middle
 
         .title
             textEllipsis()
+            marginRight(24px)
+
+            .link
+                color: #666
+
+                &:hover
+                    text-decoration: underline
+
+                &:visited
+                    color: #999
