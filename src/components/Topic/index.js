@@ -2,12 +2,12 @@
 
 import React from 'react';
 
-export default class Topic extends React.Component {
-    render() {
-        return (
-            <div>
-                我是一篇文章
-            </div>
-        )
-    }
+const Topic = () => {
+    return (
+        <div>
+            我是一篇文章
+        </div>
+    );
 }
+
+export default Topic;

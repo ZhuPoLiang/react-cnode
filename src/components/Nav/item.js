@@ -1,17 +1,16 @@
 'use strict';
 
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default (props) => {
     return (
         <li>
-            <NavLink
-                exact
+            <Link
                 to={props.path}
             >
             {props.title}
-            </NavLink>
+            </Link>
         </li>
     )
 }

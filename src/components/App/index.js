@@ -3,41 +3,49 @@
 import './index.styl';
 
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
 import NavBar from '../NavBar';
+import Sidebar from '../Sidebar';
 import Footer from '../Footer';
-import Loading from '../../components/Loading';
+import Loading from '../Loading';
 
-import routers from '../../routers';
-import NotFound from '../../components/NotFound';
+import { signInList, signOutList, subNavList } from '../../routers';
+import Topics from '../Topics';
+import Topic from '../Topic';
+import NotFound from '../NotFound';
 
-export default class App extends React.Component {
-    render() {
-        return (
-            <div className='global-component'>
-                <NavBar />
-                <main id='main'>
+
+
+const App = (props) => {
+    const navList = !props.isLogged ? signOutList : signInList;
+
+    return (
+        <div className='global-component'>
+            <NavBar navList={navList} />
+            <main id='main'>
+                <Sidebar />
+                <div id='content'>
                     <Switch>
-                        {
-                            routers.map((route, index) => {
-                                return (
-                                    <Route
-                                        exact
-                                        key={index}
-                                        path={route.path}
-                                        list={list}
-                                        component={route.component}
-                                    />
-                                )
-                            })
-                        }
-                        <Route path="*" component={NotFound} />
+                        <Route path='/' exact component={Topics} />
+                        <Route path='/all' component={Topics} />
+                        <Route path='/good' component={Topics} />
+                        <Route path='/share' component={Topics} />
+                        <Route path='/ask' component={Topics} />
+                        <Route path='/job' component={Topics} />
+                        <Route path='/dev' component={Topics} />
+                        <Route path='/login' component={NotFound} />
+                        <Route path='/my/messages' component={NotFound} />
+                        <Route path='/404' component={NotFound} />
+                        <Route path='/topic/:id' component={Topic} />
+                        <Route component={NotFound} />
                     </Switch>
-                </main>
-                <Footer />
-        	</div>
-        )
-    }
-};
+                </div>
+            </main>
+            <Footer />
+        </div>
+    )
+}
+
+export default App;

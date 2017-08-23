@@ -1,56 +1,54 @@
 'use strict';
 
-import Topics from '../components/Topics';
-import Topic from '../components/Topic';
-import NotFound from '../components/NotFound';
+const signInList = [
+        {
+            title: '首页',
+            path: '/'
+        },
+        {
+            title: '未读信息',
+            path: '/my/messages'
+        },
+        {
+            title: '退出',
+            path: '/out',
+        }
+    ],
+    signOutList = [
+        {
+            title: '首页',
+            path: '/'
+        },
+        {
+            title: '登陆',
+            path: '/login'
+        }
+    ],
+    subNavList = [
+        {
+            title: '全部',
+            path: '/all'
+        },
+        {
+            title: '精华',
+            path: '/good'
+        },
+        {
+            title: '分享',
+            path: '/share'
+        },
+        {
+            title: '问题',
+            path: '/ask'
+        },
+        {
+            title: '招聘',
+            path: '/job'
+        },
+        {
+            title: '测试',
+            path: '/dev'
+        }
+    ];
 
-export default [
-    {
-        title: '全部',
-        isNavLink: true,
-        path: '/',
-        component: Topics
-    },
-    {
-        title: '精华',
-        isNavLink: true,
-        path: '/good',
-        component: Topics
-    },
-    {
-        title: '分享',
-        isNavLink: true,
-        path: '/share',
-        component: Topics
-    },
-    {
-        title: '问题',
-        isNavLink: true,
-        path: '/ask',
-        component: Topics
-    },
-    {
-        title: '招聘',
-        isNavLink: true,
-        path: '/job',
-        component: Topics
-    },
-    {
-        title: '测试',
-        isNavLink: true,
-        path: '/dev',
-        component: Topics
-    },
-    {
-        title: '话题',
-        isNavLink: false,
-        path: '/topic/:id',
-        component: Topic
-    },
-    {
-        title: '错误',
-        isNavLink: false,
-        path: '/prompt/404',
-        component: NotFound
-    }
-];
+module.exports = { signInList, signOutList, subNavList };

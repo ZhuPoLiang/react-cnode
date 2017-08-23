@@ -4,18 +4,16 @@ import React from 'react';
 
 import Item from './item';
 
-export default class Nav extends React.Component {
-    render() {
-        let linkItems = this.props.navList.filter(item => {
-            return item.isNavLink;
-        }).map((item, index) => {
-            return <Item key={index} {...item} />
-        });
+const Nav = (props) => {
+    let linkItems = props.navList.map((item, index) => {
+        return <Item key={index} {...item} />
+    });
 
-        return (
-            <ul className='nav float-right'>
-                { linkItems }
-            </ul>
-        );
-    }
-};
+    return (
+        <ul className='nav float-right'>
+            { linkItems }
+        </ul>
+    );
+}
+
+export default Nav;

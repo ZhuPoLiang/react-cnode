@@ -1,11 +1,13 @@
 'use strict';
 
 const
+    os = require('os'),
     path = require('path'),
     Webpack = require('webpack'),
     WebpackMd5Hash = require('webpack-md5-hash'),
     CompressionWebpackPlugin = require('compression-webpack-plugin'),
     ExtractTextWepackPlugin = require('extract-text-webpack-plugin'),
+    UglifyJsParallelPlugin = require('webpack-uglify-parallel'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const
@@ -33,11 +35,21 @@ module.exports = [
         disable: false
     }),
     new WebpackMd5Hash(),
-    new Webpack.optimize.UglifyJsPlugin({
-        compress: {
-            warnings: false
+    // new Webpack.optimize.UglifyJsPlugin({
+    //     compress: {
+    //         warnings: false
+    //     },
+    //     except: ['$super', '$', 'exports', 'require']
+    // }),
+    new UglifyJsParallelPlugin({
+        workers: os.cpus().length,
+        mangle: true,
+        compressor: {
+            warnings: false,
+            drop_console: true,
+            drop_debugger:true
         },
-        except: ['$super', '$', 'exports', 'require']
+        sourceMap: false
     }),
     new CompressionWebpackPlugin({
         asset: '[path].gz[query]',
