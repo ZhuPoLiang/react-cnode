@@ -1,8 +1,9 @@
 'use strict';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import Item from './item';
+import Item from './Item';
 
 const Nav = (props) => {
     let linkItems = props.navList.map((item, index) => {
@@ -14,6 +15,10 @@ const Nav = (props) => {
             { linkItems }
         </ul>
     );
-}
+};
+
+Nav.propTypes = {
+    navList: PropTypes.array
+};
 
 export default Nav;

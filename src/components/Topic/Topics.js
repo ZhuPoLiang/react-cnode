@@ -6,8 +6,7 @@ import user_picture from '../../common/images/1.jpg';
 import React from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 
-import { subNavList } from '../../routers';
-import NotFound from '../NotFound';
+import { subNavList } from '../../routers/list';
 
 const Topics = (props) => {
     return (
@@ -42,7 +41,7 @@ const Topics = (props) => {
                             <span className='time'>2017-08-01</span>
                         </a>
                         <div className='title'>
-                            <span className='put-top'>置顶</span>
+                            <span className='tab put-top'>置顶</span>
                             <a href='#' className='link'>
                                 又可以开心的做自己的事情了，没有比这更能感到舒服自在的
                             </a>

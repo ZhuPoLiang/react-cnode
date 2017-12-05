@@ -2,7 +2,7 @@
 
 import { SHOW_LOADING, HIDE_LOADING } from '../actions/loading';
 
-const loading = (state, action) => {
+const loading = (state = {}, action) => {
     switch (action.type) {
         case SHOW_LOADING:
             return Object.assign({}, state, {
@@ -18,6 +18,6 @@ const loading = (state, action) => {
         default:
             return state;
     }
-}
+};
 
 export default loading;

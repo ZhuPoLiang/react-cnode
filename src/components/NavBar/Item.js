@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default (props) => {
+const Item = (props) => {
     return (
         <li>
             <Link
@@ -12,5 +13,12 @@ export default (props) => {
             {props.title}
             </Link>
         </li>
-    )
-}
+    );
+};
+
+Item.propTypes = {
+    path: PropTypes.string,
+    title: PropTypes.string
+};
+
+export default Item;

@@ -3,7 +3,6 @@
 import { combineReducers } from 'redux';
 
 import loading from './loading';
+import login from './login';
 
-export default combineReducers(
-    loading
-);
+export default { loading, login };

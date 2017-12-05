@@ -3,9 +3,10 @@
 import './index.styl';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import Logo from '../Logo';
-import Nav from '../Nav';
+import Logo from './Logo';
+import Nav from './Nav';
 
 const NavBar = (props) => {
     return (
@@ -17,5 +18,9 @@ const NavBar = (props) => {
         </nav>
     );
 }
+
+Nav.propTypes = {
+    navList: PropTypes.array
+};
 
 export default NavBar;

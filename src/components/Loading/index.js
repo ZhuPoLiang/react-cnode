@@ -10,7 +10,7 @@ const Loading = (props) => {
         <div id="loading">
             <div className="inner loading">
                 <i className="iconfont icon-loading"></i>
-                <span className="content">{props.text}</span>
+                <span className="content">{props.message}</span>
             </div>
         </div>
     );

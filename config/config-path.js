@@ -11,7 +11,7 @@ configPath.distPath = path.join(configPath.rootPath, './dist');
 configPath.staticPath = path.join(configPath.distPath, './static');
 configPath.dllPath = path.join(configPath.distPath, './dll');
 
-configPath.host = '0.0.0.0';
+configPath.host = '127.0.0.1';
 configPath.port = 2046;
 configPath.dev = 'development';
 configPath.prod = 'production';
