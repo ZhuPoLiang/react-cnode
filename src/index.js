@@ -13,6 +13,8 @@ import Root from './containers/Root';
 
 let oApp = document.getElementById('app');
 
+console.log('测试');
+
 ReactDOM.render(
 	<Root />,
 	oApp
