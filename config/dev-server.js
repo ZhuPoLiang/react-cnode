@@ -8,11 +8,11 @@ module.exports = {
     port: configPath.port,
     inline: true,
     hot: true,
-    historyApiFallback: true,
-    proxy: {
-        '/api': {
-            target: 'https://cnodejs.org/',
-            secure: false
-        }
-    }
+    historyApiFallback: true
+    // proxy: {
+    //     '/api': {
+    //         target: 'https://cnodejs.org/',
+    //         secure: false
+    //     }
+    // }
 };

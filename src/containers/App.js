@@ -1,44 +1,29 @@
 'use strict';
 
 import React from 'react';
-import { connect } from 'react-redux';
+import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { createBrowserHistory } from 'history';
+import PropTypes from 'prop-types';
 
-import App from '../components/App';
+import configStore from '../store/configStore';
 
-import { showLoading } from '../actions/loading';
-import { loginSucceed, loginFailed, logout } from '../actions/login';
+import Home from './Home';
 
-const handleSignIn = (dispatch) => {
-    dispatch(loginSucceed('登陆成功'));
+const store = configStore(),
+    history = syncHistoryWithStore(createBrowserHistory(), store);
 
-    return (dispatch, getState) => {
-        dispatch(showLoading('登陆成功'));
-    };
+const App = () => {
+    return (
+        <Provider store={store}>
+            <Home />
+    	</Provider>
+    )
 };
 
-const handleSignOut = () => {
-    dispatch(logout());
+App.propTypes = {
+    store: PropTypes.object,
+    history: PropTypes.object
+};
 
-    return (dispatch, getState) => {
-        dispatch(showLoading('注销账户'));
-    };
-}
-
-export default connect(
-    (state) => {
-        return state;
-    },
-    (dispatch) => {
-        return {
-            showLoading: () => {
-                dispatch(showLoading('我要加载', true));
-            },
-            handleSignIn: () => {
-                dispatch(handleSignIn(dispatch));
-            },
-            handleSignOut: () => {
-                dispatch(handleLogin(dispatch));
-            }
-        }
-    }
-)(App);
+export default App;

@@ -5,21 +5,22 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { createBrowserHistory } from 'history';
 import thunkMiddleware from 'redux-thunk';
 
+// 引入合并的reducer
 import reducers from '../reducers';
 
-// 加入中间件
-const finalCreateStore = compose(
+// 生成 router中间件
+const history = createBrowserHistory(),
+    routeMiddleware = routerMiddleware(history);
+
+// 注入中间件
+const configureStore = compose(
     applyMiddleware(
-        routerMiddleware(createBrowserHistory()),
+        routeMiddleware,
         thunkMiddleware
     )
 )(createStore);
 
-// 加入router reducer
-const reducer = combineReducers(Object.assign({}, reducers, {
-    routing: routerReducer
-}));
-
+// 合并默认state输出
 export default (initialState) => {
-    return finalCreateStore(reducer, initialState);
+    return configureStore(reducers, initialState);
 };

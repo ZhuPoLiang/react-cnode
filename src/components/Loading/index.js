@@ -7,10 +7,10 @@ import React from 'react';
 
 const Loading = (props) => {
     return (
-        <div id="loading">
+        <div id="tips">
             <div className="inner loading">
                 <i className="iconfont icon-loading"></i>
-                <span className="content">{props.message}</span>
+                <span className="content">{props.text}</span>
             </div>
         </div>
     );
