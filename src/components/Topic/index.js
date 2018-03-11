@@ -4,7 +4,7 @@ import './index.styl';
 
 import React from 'react';
 
-import Sidebar from '../Sidebar';
+import Sidebar from './Sidebar';
 import Reply from './Reply';
 
 const tabSchema = {
@@ -21,7 +21,7 @@ const Topic = (props) => {
 
     return (
         <main id='main'>
-            <Sidebar />
+            <Sidebar {...props.data}/>
             <div id='content'>
                 <div className='panel'>
                     <div className='inner no-padding'>
