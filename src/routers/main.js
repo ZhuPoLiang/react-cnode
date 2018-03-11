@@ -6,6 +6,7 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 import Topic from '../containers/Topic';
 import Topics from '../containers/Topics';
 import NotFound from '../components/NotFound';
+import Login from '../components/Login';
 
 const MainComponent = () => {
     return (
@@ -19,10 +20,10 @@ const MainComponent = () => {
             <Route path='/ask' component={Topics} />
             <Route path='/job' component={Topics} />
             <Route path='/dev' component={NotFound} />
-            <Route path='/login' component={NotFound} />
+            <Route path='/login' component={Login} />
             <Route path='/my/messages' component={Topics} />
             <Route path='/404' component={NotFound} />
-            <Route path='/:id' component={Topic} />
+            <Route path='/topic/:id' component={Topic} />
             <Route component={NotFound} />
         </Switch>
     );

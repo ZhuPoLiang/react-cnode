@@ -17,7 +17,7 @@ const tabSchema = {
 
 const Topic = (props) => {
     const {content, title, reply_count, top, replies, author, tab, visit_count} = props.data;
-    console.log(props)
+
     return (
         <div>
             <div className='panel'>
