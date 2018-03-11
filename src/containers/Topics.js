@@ -14,15 +14,13 @@ const filterTab = pathname => {
 }
 
 class Topics extends React.Component {
-    constructor(arg) {
-        super(arg);
-
-        var {data, tab} = this.props;
+    constructor(props) {
+        super(props);
 
         this.state = {
-            data: data,
+            data: this.props.data,
             page: 1,
-            tab: tab
+            tab: filterTab(this.props.location.pathname)
         }
     }
 
@@ -32,7 +30,9 @@ class Topics extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.state.tab !== this.props.tab) {
+        var tab = filterTab(nextProps.location.pathname);
+        
+        if (this.state.tab !== tab) {
             this.setState({
                 tab,
                 page: 1

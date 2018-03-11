@@ -3,15 +3,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory, createHashHistory } from 'history';
 import PropTypes from 'prop-types';
 
 import configStore from '../store/configStore';
 
 import Home from './Home';
 
-const store = configStore(),
-    history = syncHistoryWithStore(createBrowserHistory(), store);
+const store = configStore();
+    // history = syncHistoryWithStore(createBrowserHistory(), store);
 
 const App = () => {
     return (

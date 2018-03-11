@@ -12,8 +12,8 @@ const filterID = pathname => {
 }
 
 class Topic extends React.Component {
-    constructor(arg) {
-        super(arg);
+    constructor(props) {
+        super(props);
 
         this.state = {
             data: this.props.data,

@@ -19,7 +19,7 @@ const MainComponent = () => {
             <Route path='/share' component={Topics} />
             <Route path='/ask' component={Topics} />
             <Route path='/job' component={Topics} />
-            <Route path='/dev' component={NotFound} />
+            <Route path='/dev' component={Topics} />
             <Route path='/login' component={Login} />
             <Route path='/my/messages' component={Topics} />
             <Route path='/404' component={NotFound} />

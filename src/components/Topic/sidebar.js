@@ -5,8 +5,7 @@ import './index.styl';
 import React from 'react';
 
 const Sidebar = (props) => {
-    console.log(props);
-    const {author, } = props;
+    const {author} = props;
 
     return (
         <div id='sidebar'>
