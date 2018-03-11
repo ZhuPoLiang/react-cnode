@@ -3,29 +3,29 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 
-import Topics from '../components/Topic/Topics';
-import Topic from '../components/Topic/Topic';
+import Topic from '../containers/Topic';
+import Topics from '../containers/Topics';
 import NotFound from '../components/NotFound';
 
-const Main = () => {
+const MainComponent = () => {
     return (
-        <div id='content'>
-            <Switch>
-                <Route path='/' exact component={Topics} />
-                <Route path='/all' component={Topics} />
-                <Route path='/good' component={Topics} />
-                <Route path='/share' component={Topics} />
-                <Route path='/ask' component={Topics} />
-                <Route path='/job' component={Topics} />
-                <Route path='/dev' component={Topics} />
-                <Route path='/login' component={NotFound} />
-                <Route path='/my/messages' component={NotFound} />
-                <Route path='/404' component={NotFound} />
-                <Route path='/topic/:id' component={Topic} />
-                <Route component={NotFound} />
-            </Switch>
-        </div>
+        <Switch>
+            <Route path='/' exact render={() => (
+                <Redirect to='/all'/>
+            )}/>
+            <Route path='/all' component={Topics} />
+            <Route path='/good' component={Topics} />
+            <Route path='/share' component={Topics} />
+            <Route path='/ask' component={Topics} />
+            <Route path='/job' component={Topics} />
+            <Route path='/dev' component={NotFound} />
+            <Route path='/login' component={NotFound} />
+            <Route path='/my/messages' component={NotFound} />
+            <Route path='/404' component={NotFound} />
+            <Route path='/topic/:id' component={Topic} />
+            <Route component={NotFound} />
+        </Switch>
     );
 }
 
-export default Main;
+export default MainComponent;

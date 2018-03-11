@@ -1,0 +1,99 @@
+@import '../../common/styles/mixi';
+
+.panel
+    .header
+        padding: 10px
+        background-color: #f6f6f6
+        border-radius: 3px 3px 0 0
+
+    .inner
+        background-color: #fff
+
+    .tab
+        background: #e5e5e5
+        marginRight(6px)
+        padding: 2px 4px
+        color: #999
+        font-size: 12px
+        borderRadius(3px)
+
+    .put-top
+        background: #80bd01
+        color: #fff
+
+.topic-tab
+    display: inline-block
+    margin: 0 10px
+    padding: 3px 4px
+    color: #80bd01
+    font-size: 14px
+
+.topic-tab.active
+    background-color: #80bd01
+    color: #fff
+    border-radius: 3px
+
+.topic-list
+    .cell
+        padding: 10px
+        line-height: 30px
+        border-top: 1px solid #f0f0f0
+
+        &:first-child
+            border-top: none
+
+        &:hover
+            background-color: #f8f8f8
+
+        .picture
+            leftFloat()
+            width: 30px
+            height: 30px
+            marginRight(6px)
+            border-radius: 3px
+            overflow: hidden
+
+        .browse
+            leftFloat()
+            width: 80px
+            marginRight(6px)
+            font-size: 10px
+            text-align: center
+
+            .reply-count
+                color: #9e78c0
+                font-size: 13px;
+
+            .visit-count
+                color: #b4b4b4
+
+        .create-timer
+            rightFloat()
+            color: #bbb
+            font-size: 10px
+
+            img
+                width: 18px
+                height: 18px
+                marginRight(6px)
+                vertical-align: middle
+                borderRadius(3px)
+
+            .time
+                display: inline-block
+                min-width: 50px
+                text-align: right
+                vertical-align: middle
+
+        .title
+            textEllipsis()
+            marginRight(24px)
+
+            .link
+                color: #333
+
+                &:hover
+                    text-decoration: underline
+
+                &:visited
+                    color: #999

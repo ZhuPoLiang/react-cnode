@@ -13,7 +13,7 @@ const NavBar = (props) => {
         <nav id='nav-bar'>
             <div className='inner'>
                 <Logo />
-                <Nav navList={props.navList} />
+                <Nav topMenu={props.topMenu}/>
             </div>
         </nav>
     );

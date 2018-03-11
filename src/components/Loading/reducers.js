@@ -1,18 +1,18 @@
 'use strict';
 
-import { SHOW_LOADING, HIDE_LOADING } from '../actions/loading';
+import { SHOW_LOADING, HIDE_LOADING } from './actions';
 
 const loading = (state = {}, action) => {
     switch (action.type) {
         case SHOW_LOADING:
             return Object.assign({}, state, {
-                text: action.text,
-                isLoading: action.isLoading
+                isLoading: true,
+                text: action.text
             });
 
         case HIDE_LOADING:
             return Object.assign({}, state, {
-                isLoading: !state.isLoading
+                isLoading: false
             });
 
         default:
