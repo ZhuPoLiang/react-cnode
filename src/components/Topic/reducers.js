@@ -5,7 +5,15 @@ import { FETCH_TOPIC, ERROR_TOPIC  } from './actions';
 // 初始化数据
 const initState = {
     id: '',
-    data: []
+    data: {
+        author: {
+            avatar_url: '',
+            loginname: ''
+        },
+        replies: [],
+        reply_count: 0,
+        visit_count: 0
+    }
 };
 
 const topic = (state = initState, action) => {

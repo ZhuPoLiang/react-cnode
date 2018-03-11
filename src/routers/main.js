@@ -20,9 +20,9 @@ const MainComponent = () => {
             <Route path='/job' component={Topics} />
             <Route path='/dev' component={NotFound} />
             <Route path='/login' component={NotFound} />
-            <Route path='/my/messages' component={NotFound} />
+            <Route path='/my/messages' component={Topics} />
             <Route path='/404' component={NotFound} />
-            <Route path='/topic/:id' component={Topic} />
+            <Route path='/:id' component={Topic} />
             <Route component={NotFound} />
         </Switch>
     );

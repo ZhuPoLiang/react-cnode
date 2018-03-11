@@ -48,7 +48,7 @@ class Topics extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => state.topics;
+const mapStateToProps = state => state.topics;
 
 export default connect(
     mapStateToProps
