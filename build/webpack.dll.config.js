@@ -23,8 +23,7 @@ const
         'react-router-dom',
         'react-router-redux',
         'redux',
-        'redux-thunk',
-        'redux-logger'
+        'redux-thunk'
     ];
 
 module.exports = {
