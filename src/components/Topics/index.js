@@ -6,6 +6,7 @@ import React from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 
 import { subMenu } from '../../routers/list';
+import Sidebar from './Sidebar';
 import Item from './item';
 
 const tabSchema = {
@@ -25,29 +26,34 @@ const Topics = (props) => {
     });
 
     return (
-        <div className='panel'>
-            <div className='header'>
-                {
-                    subMenu.map((item, index) => {
-                        return (
-                            <NavLink
-                                exact
-                                to={item.path}
-                                key={item.path}
-                                className='topic-tab'
-                            >
-                            {item.title}
-                            </NavLink>
-                        )
-                    })
-                }
+        <main id='main'>
+            <Sidebar />
+            <div id='content'>
+                <div className='panel'>
+                    <div className='header'>
+                        {
+                            subMenu.map((item, index) => {
+                                return (
+                                    <NavLink
+                                        exact
+                                        to={item.path}
+                                        key={item.path}
+                                        className='topic-tab'
+                                    >
+                                    {item.title}
+                                    </NavLink>
+                                )
+                            })
+                        }
+                    </div>
+                    <div className='inner no-padding'>
+                        <ul className='topic-list'>
+                            { topicMenu }
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div className='inner'>
-                <ul className='topic-list'>
-                    { topicMenu }
-                </ul>
-            </div>
-        </div>
+        </main>
     );
 }
 

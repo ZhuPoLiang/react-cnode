@@ -7,7 +7,7 @@ const Reply = (props) => {
 
     return (
         <div className='panel'>
-            <div className='inner'>
+            <div className='inner no-padding'>
                 <div className='header'>
                     {reply_count} 回复
                 </div>

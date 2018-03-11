@@ -4,7 +4,6 @@ import './index.styl';
 
 import React from 'react';
 
-import Sidebar from '../Sidebar';
 import Header from '../Header';
 import Footer from '../Footer';
 import Loading from '../Loading';
@@ -15,11 +14,7 @@ const Home = (props) => {
     return (
         <div className='page-wrapped'>
             <Header topMenu={signOutMenu}/>
-            <main id='main'>
-                <div id='content'>
-                    <RouterMain />
-                </div>
-            </main>
+            <RouterMain />
             <Footer />
             {
                 props.loading.isLoading ? <Loading text="正在加载..." /> : null
