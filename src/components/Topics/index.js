@@ -5,24 +5,16 @@ import './index.styl';
 import React from 'react';
 import { NavLink, Route, Switch } from 'react-router-dom';
 
+import { changeTabSchema } from '../../util/util';
 import { subMenu } from '../../routers/list';
 import Sidebar from './Sidebar';
 import Item from './item';
 
-const tabSchema = {
-    all: '全部',
-    good: '精华',
-    share: '分享',
-    ask: '问答',
-    job: '招聘',
-    dev: '测试',
-};
-
 const Topics = (props) => {
-    var topicMenu = props.data.filter(item => {
+    let topicMenu = props.data.filter(item => {
         return !!item.tab;
     }).map(item => {
-        return <Item key={item.id} tabName={tabSchema[item.tab]} {...item}/>
+        return <Item key={item.id} tabName={changeTabSchema(item.tab)} {...item}/>
     });
 
     return (

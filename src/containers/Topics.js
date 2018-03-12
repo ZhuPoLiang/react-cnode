@@ -4,14 +4,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { getLastParam } from '../util/util';
 import TopicsComponent from '../components/Topics';
 import { showLoading, hideLoading } from '../components/Loading/actions';
 import * as actions from '../components/Topics/actions';
-
-const filterTab = pathname => {
-    let path = pathname.split("/");
-    return path[path.length - 1];
-}
 
 class Topics extends React.Component {
     constructor(props) {
@@ -20,18 +16,21 @@ class Topics extends React.Component {
         this.state = {
             data: this.props.data,
             page: 1,
-            tab: filterTab(this.props.location.pathname)
+            tab: getLastParam(this.props.location.pathname)
         }
     }
 
     componentWillMount() {
-        const {tab, page} = this.state;
-        actions.fetchList(tab, page)(this.props.dispatch);
+        const {tab, page, data} = this.state;
+
+        if (!data.length) {
+            actions.fetchList(tab, page)(this.props.dispatch);
+        }
     }
 
     componentWillReceiveProps(nextProps) {
-        var tab = filterTab(nextProps.location.pathname);
-        
+        var tab = getLastParam(nextProps.location.pathname);
+
         if (this.state.tab !== tab) {
             this.setState({
                 tab,

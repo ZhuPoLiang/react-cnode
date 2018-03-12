@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { compareDate } from '../../util/util';
 
 const Item = (props) => {
-    let {author:{loginname, avatar_url}, create_at, top, tabName, id, title, reply_count, visit_count} = props;
+    let {author:{loginname, avatar_url}, id, title, last_reply_at} = props;
 
     return (
         <li className='cell'>
@@ -17,20 +17,10 @@ const Item = (props) => {
             >
                 <img src={avatar_url} title={loginname} />
             </Link>
-            <div className='browse'>
-                <span className='reply-count'>{reply_count}</span>/<span className='visit-count'>{visit_count}</span>
-            </div>
             <div className='create-timer'>
-                <span className='time'>发表于：{compareDate(create_at)}</span>
+                <span className='time'>最后回复：{compareDate(last_reply_at)}</span>
             </div>
             <div className='title'>
-                {
-                    top ? (
-                        <span className='tab put-top'>置顶</span>
-                    ) : (
-                        <span className='tab'>{tabName}</span>
-                    )
-                }
                 <Link
                     to={'/topic/'+ id}
                     className='link'

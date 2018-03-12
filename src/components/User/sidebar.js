@@ -6,7 +6,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Sidebar = (props) => {
-    const {author: {avatar_url, loginname}} = props;
+    let {avatar_url, loginname} = props;
 
     return (
         <div id='sidebar'>

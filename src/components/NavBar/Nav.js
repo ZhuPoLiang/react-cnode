@@ -1,24 +1,28 @@
 'use strict';
 
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import Item from './Item';
+// import Item from './Item';
 
 const Nav = (props) => {
-    let topMenuItems = props.topMenu.map((item, index) => {
-        return <Item key={item.path} {...item} />
-    });
+    // let topMenuItems = props.topMenu.map((item, index) => {
+    //     return <Item key={item.path} {...item} />
+    // });
+    // { topMenuItems }
 
     return (
         <ul className='nav float-right'>
-            { topMenuItems }
+            <li>
+                <a href="/">首页</a>
+            </li>
+            <li>
+                <a href="https://cnodejs.org/signup" target="_blank">注册</a>
+            </li>
+            <li>
+                <a href="https://cnodejs.org/signin" target="_blank">登陆</a>
+            </li>
         </ul>
     );
-};
-
-Nav.propTypes = {
-    navList: PropTypes.array
 };
 
 export default Nav;

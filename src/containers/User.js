@@ -4,10 +4,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { getLastParam } from '../util/util';
-import TopicComponent from '../components/Topic';
-import * as actions from '../components/Topic/actions';
+import UserComponent from '../components/User';
+import * as actions from '../components/User/actions';
 
-class Topic extends React.Component {
+class User extends React.Component {
     constructor(props) {
         super(props);
 
@@ -19,16 +19,16 @@ class Topic extends React.Component {
 
     componentWillMount() {
         let {data, id} = this.state;
-        actions.fetchSingle(id)(this.props.dispatch);
+        actions.fetchInfo(id)(this.props.dispatch);
     }
 
     render() {
-        return <TopicComponent {...this.props}/>
+        return <UserComponent {...this.props}/>
     }
 }
 
-const mapStateToProps = state => state.topic;
+const mapStateToProps = state => state.user;
 
 export default connect(
     mapStateToProps
-)(Topic);
+)(User);

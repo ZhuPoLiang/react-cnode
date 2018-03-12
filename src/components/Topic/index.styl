@@ -36,21 +36,27 @@
         float: left
 
         img
-            width: 30px
-            height: 30px
-            border-radius: 3px
+            imgSize()
 
     .user_info
         margin-left: 10px
         display: inline-block
 
         .reply_author
-            color: #666
+            a
+                color: #666
+                font-weight: 700
 
         .reply_time
             padding-left: 4px
             color: #08c
             font-size: 11px
+
+    .user_action
+        float: right
+        margin-left: 20px
+        color: gray
+        font-size: 11px
 
 .markdown-text
     margin: 0 10px
@@ -112,9 +118,7 @@ blockquote
         margin-right: .5em
 
         img
-            width: 48px
-            height: 48px
-            border-radius: 3px
+            imgSize(48px, 48px)
 
     .user_name
         font-size: 16px

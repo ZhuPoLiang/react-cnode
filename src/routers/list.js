@@ -11,7 +11,7 @@ const signInMenu = [
     },
     {
         title: '退出',
-        path: '/out',
+        path: '/out'
     }
 ];
 
@@ -21,8 +21,12 @@ const signOutMenu = [
         path: '/'
     },
     {
+        title: '注册',
+        path: '/signup'
+    },
+    {
         title: '登陆',
-        path: '/login'
+        path: '/signin'
     }
 ];
 
