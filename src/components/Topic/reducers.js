@@ -1,6 +1,6 @@
 'use strict';
 
-import { FETCH_TOPIC, ERROR_TOPIC  } from './actions';
+import { FETCH_TOPIC, CLEAR_TOPIC  } from './actions';
 
 // 初始化数据
 const initState = {
@@ -24,10 +24,8 @@ const topic = (state = initState, action) => {
                 data: action.data
             });
 
-        case ERROR_TOPIC:
-            return Object.assign({}, state, {
-                data: []
-            });
+        case CLEAR_TOPIC:
+            return initState;
 
         default:
             return state;

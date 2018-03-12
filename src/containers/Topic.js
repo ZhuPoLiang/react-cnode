@@ -18,12 +18,22 @@ class Topic extends React.Component {
     }
 
     componentWillMount() {
-        let {data, id} = this.state;
-        actions.fetchSingle(id)(this.props.dispatch);
+        let {id} = this.state;
+
+        if (this.props.id !== id) {
+            actions.fetchSingle(id)(this.props.dispatch);
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            data: nextProps.data,
+            id: nextProps.id
+        });
     }
 
     render() {
-        return <TopicComponent {...this.props}/>
+        return <TopicComponent {...this.state}/>
     }
 }
 

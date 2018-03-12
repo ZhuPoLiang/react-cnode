@@ -1,9 +1,9 @@
 'use strict';
 
 import React from 'react';
-import { HashRouter as Router } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { HashRouter as Router } from 'react-router-dom';
 
 import HomeComponent from '../components/Home';
 import * as topicActions from '../components/Topics/actions';

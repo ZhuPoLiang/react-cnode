@@ -18,12 +18,22 @@ class User extends React.Component {
     }
 
     componentWillMount() {
-        let {data, id} = this.state;
-        actions.fetchInfo(id)(this.props.dispatch);
+        let {id} = this.state;
+
+        if (this.props.id !== id) {
+            actions.fetchInfo(id)(this.props.dispatch);
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            data: nextProps.data,
+            id: nextProps.id
+        });
     }
 
     render() {
-        return <UserComponent {...this.props}/>
+        return <UserComponent {...this.state}/>
     }
 }
 
