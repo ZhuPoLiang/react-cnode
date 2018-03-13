@@ -1,7 +1,6 @@
 'use strict';
 
 import { combineReducers } from 'redux';
-import { routerReducer } from 'react-router-redux';
 
 // 引入容器组件的局部 reducer
 import tips from '../components/Tips/reducers';
@@ -14,8 +13,7 @@ const reducers = {
     tips,
     user,
     topic,
-    topics,
-    routing: routerReducer
+    topics
 };
 
 export default combineReducers(reducers);
