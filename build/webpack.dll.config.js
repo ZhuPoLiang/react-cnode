@@ -1,11 +1,13 @@
 'use strict';
 
 const
+    os = require('os'),
     path = require('path'),
     Webpack = require('webpack'),
     AssetsPlugin = require('assets-webpack-plugin'),
     CompressionWebpackPlugin = require('compression-webpack-plugin'),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
+    UglifyJsParallelPlugin = require('webpack-uglify-parallel'),
     WebpackMd5Hash = require('webpack-md5-hash');
 
 const
@@ -56,11 +58,15 @@ module.exports = {
             filename: 'dll-config.json',
             path: configPath.dllPath
         }),
-        new Webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
+        new UglifyJsParallelPlugin({
+            workers: os.cpus().length,
+            mangle: true,
+            compressor: {
+                warnings: false,
+                drop_console: true,
+                drop_debugger:true
             },
-            except: ['$super', '$', 'exports', 'require']
+            sourceMap: false
         }),
         new CompressionWebpackPlugin({
           asset: '[path].gz[query]',

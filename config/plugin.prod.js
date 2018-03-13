@@ -17,8 +17,8 @@ const
 module.exports = [
     new Webpack.DefinePlugin({
         'process.env': {
-            NODE_ENV: JSON.stringify('production')
-        }
+            NODE_ENV: JSON.stringify("production")
+         }
     }),
     new Webpack.DllReferencePlugin({
         context: configPath.dllPath,
@@ -35,12 +35,6 @@ module.exports = [
         disable: false
     }),
     new WebpackMd5Hash(),
-    // new Webpack.optimize.UglifyJsPlugin({
-    //     compress: {
-    //         warnings: false
-    //     },
-    //     except: ['$super', '$', 'exports', 'require']
-    // }),
     new UglifyJsParallelPlugin({
         workers: os.cpus().length,
         mangle: true,

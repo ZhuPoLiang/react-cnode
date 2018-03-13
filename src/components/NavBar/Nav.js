@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 // import Item from './Item';
 
@@ -13,7 +14,7 @@ const Nav = (props) => {
     return (
         <ul className='nav float-right'>
             <li>
-                <a href="/">首页</a>
+                <Link to='/'>首页</Link>
             </li>
             <li>
                 <a href="https://cnodejs.org/signup" target="_blank">注册</a>
