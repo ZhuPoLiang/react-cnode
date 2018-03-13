@@ -15,7 +15,7 @@ export const saveTopics = (tab, page, data) => ({
 
 export const fetchList = (tab, page) => {
     return dispatch => {
-        dispatch(showLoading('warn', '加载错误'));
+        dispatch(showLoading());
         return fetchTopicList(tab, page).then(res => {
             dispatch(hideLoading());
             dispatch(saveTopics(tab, page, res.data));
