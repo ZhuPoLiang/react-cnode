@@ -5,7 +5,8 @@ import { FETCH_TOPICS, ERROR_TOPICS  } from './actions';
 // 初始化数据
 const initState = {
     tab: '',
-    data: []
+    data: [],
+    page: 1
 };
 
 const topics = (state = initState, action) => {
@@ -13,7 +14,8 @@ const topics = (state = initState, action) => {
         case FETCH_TOPICS:
             return Object.assign({}, state, {
                 tab: action.tab,
-                data: action.data
+                data: action.data,
+                page: action.page
             });
 
         case ERROR_TOPICS:

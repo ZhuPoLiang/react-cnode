@@ -2,8 +2,8 @@
 
 import { get } from '../util/fetch';
 
-export const fetchTopicList = (tabType) => {
-    return get('/api/v1/topics'+ (tabType ? ('?tab='+ tabType) : '')).then(res => {
+export const fetchTopicList = (tab, page) => {
+    return get('/api/v1/topics?tab='+ tab + '&page='+ page).then(res => {
         if (res.status !== 200) {
             return false;
         } else {

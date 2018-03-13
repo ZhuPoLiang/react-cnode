@@ -1,7 +1,7 @@
 'use strict';
 
 import { fetchUserInfo } from '../../api/user';
-import { showLoading, hideLoading } from '../Loading/actions';
+import { showLoading, hideLoading } from '../Tips/actions';
 
 export const FETCH_USER = 'FETCH_USER';
 export const CLEAR_USER = 'CLEAR_USER';

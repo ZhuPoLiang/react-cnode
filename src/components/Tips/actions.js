@@ -3,8 +3,9 @@
 export const SHOW_LOADING = 'SHOW_LOADING';
 export const HIDE_LOADING = 'HIDE_LOADING';
 
-export const showLoading = (text) => ({
+export const showLoading = (icon, text) => ({
     type: SHOW_LOADING,
+    icon,
     text
 });
 

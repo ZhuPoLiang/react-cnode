@@ -17,6 +17,20 @@ const Topics = (props) => {
         return <Item key={item.id} tabName={changeTabSchema(item.tab)} {...item}/>
     });
 
+    const prevPage = page => {
+        if (page > 1) {
+            page--;
+            props.fetchData(props.tab, page);
+        }
+    };
+
+    const nextPage = page => {
+        page++;
+        props.fetchData(props.tab, page);
+    }
+
+    const handerPage = (page, isNext) => (props.hanlderPage(page, isNext));
+
     return (
         <main id='main'>
             <Sidebar />
@@ -42,6 +56,10 @@ const Topics = (props) => {
                         <ul className='topic-list'>
                             { topicMenu }
                         </ul>
+                        <div className='page'>
+                            <a className={props.newPage <= 1 ? 'disabled' : ''} onClick={handerPage.bind(null, props.newPage, false)}>上一页</a>
+                            <a onClick={handerPage.bind(null, props.newPage, true)}>下一页</a>
+                        </div>
                     </div>
                 </div>
             </div>

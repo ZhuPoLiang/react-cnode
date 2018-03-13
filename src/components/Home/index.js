@@ -6,7 +6,7 @@ import React from 'react';
 
 import Header from '../Header';
 import Footer from '../Footer';
-import Loading from '../Loading';
+import Tips from '../Tips';
 import RouterMain from '../../routers/main';
 import { signInMenu, signOutMenu } from '../../routers/list';
 
@@ -17,7 +17,7 @@ const Home = (props) => {
             <RouterMain />
             <Footer />
             {
-                props.loading.isLoading ? <Loading text="正在加载..." /> : null
+                props.tips.isShow ? <Tips {...props.tips}/> : null
             }
         </div>
     )

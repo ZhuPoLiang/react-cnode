@@ -1,7 +1,7 @@
 'use strict';
 
 import { fetchTopicSingle } from '../../api/topic';
-import { showLoading, hideLoading } from '../Loading/actions';
+import { showLoading, hideLoading } from '../Tips/actions';
 
 export const FETCH_TOPIC = 'FETCH_TOPIC';
 export const CLEAR_TOPIC = 'CLEAR_TOPIC';
