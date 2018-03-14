@@ -15,9 +15,11 @@ class Topics extends React.Component {
         this.state = {
             data: this.props.data,
             page: this.props.page,
-            isFetch: true,
+            isRequestLock: false,
             tab: getLastParam(this.props.location.pathname)
         }
+
+        this.hanlderPage = this.hanlderPage.bind(this);
     }
 
     componentWillMount() {
@@ -40,11 +42,12 @@ class Topics extends React.Component {
             this.fetchData(tab, 1);
             return false;
         }
-        return true;
-    }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        // console.log(nextProps, nextState);
+        this.setState({
+            data: nextProps.data,
+            page: nextProps.page
+        });
+
         return true;
     }
 
@@ -53,40 +56,33 @@ class Topics extends React.Component {
 
         _fetch.then(() => (
             this.setState({
-                isFetch: true
+                isRequestLock: false
             })
         )).catch(() => (
             this.setState({
-                isFetch: true
+                isRequestLock: false
             })
         ));
     }
 
     hanlderPage(page, isNext) {
-        let {isFetch, tab} = this.state;
+        let {isRequestLock, tab} = this.state;
 
         // 防重复请求处理
-        if (!isFetch) {
+        if (isRequestLock) {
             return false;
-        }
-
-        if (isNext) {
-            page++;
-        } else {
-            page = page > 0 ? (page - 1) : 1;
         }
 
         if (page > 0) {
             this.setState({
-                page: page,
-                isFetch: false
+                isRequestLock: true
             });
             this.fetchData(tab, page);
         }
     }
 
     render() {
-        return <TopicsComponent hanlderPage={this.hanlderPage.bind(this)} newPage={this.state.page} {...this.props} />
+        return <TopicsComponent hanlderPage={this.hanlderPage} {...this.state} />
     }
 }
 

@@ -19,17 +19,30 @@ class User extends React.Component {
 
     componentWillMount() {
         let {id} = this.state;
-
-        if (this.props.id !== id) {
-            actions.fetchInfo(id)(this.props.dispatch);
-        }
+        this.fetchData(id);
     }
 
     componentWillReceiveProps(nextProps) {
+        let id = getLastParam(nextProps.location.pathname);
+
+        if (this.state.id !== id) {
+            this.setState({
+                id
+            });
+
+            this.fetchData(id);
+            return false;
+        }
+
         this.setState({
-            data: nextProps.data,
-            id: nextProps.id
+            data: nextProps.data
         });
+
+        return true;
+    }
+
+    fetchData(id) {
+        actions.fetchInfo(id)(this.props.dispatch);
     }
 
     render() {

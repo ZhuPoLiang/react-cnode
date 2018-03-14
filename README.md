@@ -26,14 +26,14 @@ yarn run build
 yarn run dev
 ```
 
-## 生产环境遇到的问题
+## 遇到的问题
 
 ### 2018-03-13
 
 1. webpack插件UglifyJsPlugin
 
-    在尝试打生产环境包的时候使用webpack内置UglifyJsPlugin插件压缩代码会遇到两个警告提示，即使修改NODE_ENV环境变量为'production'也一样会出现这样的问题，反复尝试最终的解决方案是更换压缩插件，推荐 webpack-uglify-parallel 和 uglifyjs-webpack-plugin 这两个插件，后者是webpack官方维护的
+    在尝试打生产环境包的时候使用webpack内置UglifyJsPlugin插件压缩代码会遇到两个警告提示，即使修改NODE_ENV环境变量为'production'也一样会出现这样的问题，反复尝试最终的结论是该插件引发的问题，解决方案是更换压缩插件，推荐 webpack-uglify-parallel 和 uglifyjs-webpack-plugin 这两个插件，后者是webpack官方维护的。
 
-2. SPA项目通过React-router路由控制hash改变页面无法更新
+2. SPA项目通过React-router控制路由
 
-    例如当前路径为/user/1，点击另外的用户路径更改为/user/2，这个时候页面是无响应的，搜索了不少资料有提示说在生产环境不会出现这样的问题，但是看来并非如此（问题目前仍没有解决）
+    例如当前路径为/user/1，再次点击同样的路径，这时控制台会报一个错误（Hash history cannot PUSH the same path; a new entry will not be added to the history stack），该问题在实际的生产环境下是不会出现的

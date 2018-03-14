@@ -15,12 +15,10 @@ const Reply = (props) => {
 
     return (
         <div className='panel'>
-            <div className='header'>
-                {panel_name}
-            </div>
+            <div className='header'>最近{panel_name}的话题</div>
             <div className='inner no-padding'>
                 <ul className='topic-list'>
-                    { list }
+                    { data.length ? list : (<li className='cell'>最近无新{panel_name}话题</li>) }
                 </ul>
             </div>
         </div>
