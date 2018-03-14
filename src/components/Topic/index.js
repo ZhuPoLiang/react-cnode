@@ -27,7 +27,7 @@ const Topic = (props) => {
                             {title}
                         </div>
                         <div className="changes">
-                            <span>发布于 {compareDate(create_at)} 个月前</span>
+                            <span>发布于 {compareDate(create_at)}</span>
                             <span>作者 <Link to={'/user/'+ loginname}>{loginname}</Link></span>
                             <span>{visit_count} 次浏览</span>
                             <span> 来自 {changeTabSchema(tab)}</span>

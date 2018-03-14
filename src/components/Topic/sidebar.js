@@ -11,7 +11,7 @@ const Sidebar = (props) => {
     return (
         <div id='sidebar'>
             <div className='panel'>
-                <div className='header'>作者</div>
+                <div className='header'>作者信息</div>
                 <div className='inner'>
                     <div className='user_card'>
                         <Link
