@@ -17,6 +17,18 @@ const Topics = (props) => {
         return <Item key={item.id} tabName={changeTabSchema(item.tab)} {...item}/>
     });
 
+    const prevPage = page => {
+        if (page > 1) {
+            page--;
+            props.fetchData(props.tab, page);
+        }
+    };
+
+    const nextPage = page => {
+        page++;
+        props.fetchData(props.tab, page);
+    }
+
     const handerPage = (page, isNext) => (props.hanlderPage(page, isNext));
 
     return (
@@ -45,8 +57,8 @@ const Topics = (props) => {
                             { topicMenu }
                         </ul>
                         <div className='page'>
-                            <a className={props.page <= 1 ? 'disabled' : ''} onClick={handerPage.bind(null, props.page-1, false)}>上一页</a>
-                            <a onClick={handerPage.bind(null, props.page+1, true)}>下一页</a>
+                            <a className={props.newPage <= 1 ? 'disabled' : ''} onClick={handerPage.bind(null, props.newPage, false)}>上一页</a>
+                            <a onClick={handerPage.bind(null, props.newPage, true)}>下一页</a>
                         </div>
                     </div>
                 </div>

@@ -5,15 +5,13 @@ import './index.styl';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { compareDate } from '../../util/util';
-
 const Sidebar = (props) => {
-    let {avatar_url, loginname, score, create_at} = props;
+    let {avatar_url, loginname} = props;
 
     return (
         <div id='sidebar'>
             <div className='panel'>
-                <div className='header'>作者信息</div>
+                <div className='header'>作者</div>
                 <div className='inner'>
                     <div className='user_card'>
                         <Link
@@ -31,14 +29,6 @@ const Sidebar = (props) => {
                             </Link>
                         </span>
                     </div>
-                    <div className="user_profile">
-                        <ul className="unstyled">
-                            <li>
-                                <span className="big">{score}</span> 积分
-                            </li>
-                        </ul>
-                    </div>
-                    <p className="col_fade">注册时间 {compareDate(create_at)}</p>
                 </div>
             </div>
         </div>

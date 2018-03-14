@@ -10,7 +10,7 @@ import * as actions from '../components/Topic/actions';
 class Topic extends React.Component {
     constructor(props) {
         super(props);
-
+        
         this.state = {
             data: this.props.data,
             id: getLastParam(this.props.location.pathname)
@@ -27,7 +27,8 @@ class Topic extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            data: nextProps.data
+            data: nextProps.data,
+            id: nextProps.id
         });
     }
 
