@@ -22,8 +22,7 @@ const MainComponent = () => {
             <Route path='/job' component={Topics} />
             <Route path='/dev' component={Topics} />
             <Route path='/signin' component={Signin} />
-            <Route path='/user' component={User} />
-            <Route path='/my/messages' component={Topics} />
+            <Route path='/user/:id' component={User} />
             <Route path='/404' component={NotFound} />
             <Route path='/topic/:id' component={Topic} />
             <Route component={NotFound} />
