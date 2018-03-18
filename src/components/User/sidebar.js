@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { compareDate } from '../../util/util';
 
 const Sidebar = (props) => {
-    let {avatar_url, loginname, score, create_at} = props;
+    let {avatar_url, loginname, score, create_at, githubUsername} = props;
 
     return (
         <div id='sidebar'>
@@ -35,6 +35,10 @@ const Sidebar = (props) => {
                         <ul className="unstyled">
                             <li>
                                 <span className="big">{score}</span> 积分
+                            </li>
+                            <li>
+                                <i className='iconfont icon-github'></i>
+                                <a href={'https://www.github.com/'+ githubUsername} target='_blank'>@{githubUsername}</a>
                             </li>
                         </ul>
                     </div>

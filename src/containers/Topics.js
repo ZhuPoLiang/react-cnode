@@ -8,7 +8,12 @@ import { getLastParam } from '../util/util';
 import TopicsComponent from '../components/Topics';
 import * as actions from '../components/Topics/actions';
 
-class Topics extends React.Component {
+
+
+const mapStateToProps = state => state.topics;
+
+@connect(mapStateToProps)
+export default class Topics extends React.Component {
     constructor(props) {
         super(props);
 
@@ -17,7 +22,7 @@ class Topics extends React.Component {
             page: this.props.page,
             isRequestLock: false,
             tab: getLastParam(this.props.location.pathname)
-        }
+        };
 
         this.hanlderPage = this.hanlderPage.bind(this);
     }
@@ -31,7 +36,7 @@ class Topics extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        var tab = getLastParam(nextProps.location.pathname);
+        let tab = getLastParam(nextProps.location.pathname);
 
         if (this.state.tab !== tab) {
             this.setState({
@@ -58,10 +63,6 @@ class Topics extends React.Component {
             this.setState({
                 isRequestLock: false
             })
-        )).catch(() => (
-            this.setState({
-                isRequestLock: false
-            })
         ));
     }
 
@@ -84,10 +85,4 @@ class Topics extends React.Component {
     render() {
         return <TopicsComponent hanlderPage={this.hanlderPage} {...this.state} />
     }
-}
-
-const mapStateToProps = state => state.topics;
-
-export default connect(
-    mapStateToProps
-)(Topics);
+};

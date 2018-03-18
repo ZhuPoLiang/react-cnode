@@ -7,7 +7,12 @@ import { getLastParam } from '../util/util';
 import UserComponent from '../components/User';
 import * as actions from '../components/User/actions';
 
-class User extends React.Component {
+
+
+const mapStateToProps = state => state.user;
+
+@connect(mapStateToProps)
+export default class User extends React.Component {
     constructor(props) {
         super(props);
 
@@ -48,10 +53,4 @@ class User extends React.Component {
     render() {
         return <UserComponent {...this.state}/>
     }
-}
-
-const mapStateToProps = state => state.user;
-
-export default connect(
-    mapStateToProps
-)(User);
+};

@@ -7,7 +7,10 @@ import { getLastParam } from '../util/util';
 import TopicComponent from '../components/Topic';
 import * as actions from '../components/Topic/actions';
 
-class Topic extends React.Component {
+const mapStateToProps = state => state.topic;
+
+@connect(mapStateToProps)
+export default class Topic extends React.Component {
     constructor(props) {
         super(props);
 
@@ -34,10 +37,4 @@ class Topic extends React.Component {
     render() {
         return <TopicComponent {...this.state}/>
     }
-}
-
-const mapStateToProps = state => state.topic;
-
-export default connect(
-    mapStateToProps
-)(Topic);
+};
